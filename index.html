@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="preconnect" href="https://api.counterapi.dev">
+    <link rel="dns-prefetch" href="https://api.counterapi.dev">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0b0f">
+    <meta name="description" content="Free countdown timer — count down to New Year, Christmas, or any custom date. Live countdown with days, hours, minutes, seconds.">
+    <meta name="keywords" content="countdown timer, new year countdown, christmas countdown, days until, event countdown">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://jimmywithfiona.com/countdown-timer/">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1840337371416691" crossorigin="anonymous"></script>
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Countdown Timer">
+    <meta property="og:title" content="Countdown Timer — New Year, Christmas & Custom Dates">
+    <meta property="og:description" content="Free online countdown timer. Count down to any event with live days, hours, minutes, seconds.">
+    <meta property="og:url" content="https://jimmywithfiona.com/countdown-timer/">
+    <meta property="og:image" content="https://jimmywithfiona.com/countdown-timer/og.png">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Countdown Timer — New Year, Christmas & Custom | Free Online">
+    <meta name="twitter:description" content="Free countdown timer — count down to New Year, Christmas, or any custom date. Live countdown with days, hours, minutes, seconds.">
+    <meta name="twitter:image" content="https://jimmywithfiona.com/countdown-timer/og.png">
+    <title>Countdown Timer — New Year, Christmas & Custom | Free Online</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"Countdown Timer","url":"https://jimmywithfiona.com/countdown-timer/","description":"Free online countdown timer for any date or event.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (Web Browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Can I set a custom countdown date?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, you can count down to any custom date and time, or choose from presets like New Year and Christmas." } },
+        { "@type": "Question", "name": "Does the countdown update in real time?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, the countdown updates live every second showing days, hours, minutes, and seconds remaining." } }
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jimmywithfiona.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Countdown Timer", "item": "https://jimmywithfiona.com/countdown-timer/" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Countdown Timer",
+      "url": "https://jimmywithfiona.com/countdown-timer/",
+      "isPartOf": { "@type": "WebSite", "name": "Countdown Timer", "url": "https://jimmywithfiona.com/countdown-timer/" }
+    }
+    </script>
+
+</head>
+<body>
+<nav class="navbar">
+    <a class="brand" href="/countdown-timer/">⏳ Countdown Timer</a>
+    <div class="nav-links">
+        <a href="/countdown-timer/" class="active">Countdown</a>
+        <a href="about.html">About</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="contact.html">Contact</a>
+        <a href="/">🏠 Home</a>
+    </div>
+</nav>
+<main>
+    <h1>Countdown Timer ⏳</h1>
+    <p class="subtitle">Count down to any date or event — live, accurate, free.</p>
+    <div class="preset-btns">
+        <button class="preset-btn active" onclick="setPreset('newyear')">🎉 New Year</button>
+        <button class="preset-btn" onclick="setPreset('christmas')">🎄 Christmas</button>
+        <button class="preset-btn" onclick="setPreset('halloween')">🎃 Halloween</button>
+        <button class="preset-btn" onclick="setPreset('valentine')">💝 Valentine's Day</button>
+        <button class="preset-btn" onclick="setPreset('summer')">☀️ Summer Solstice</button>
+    </div>
+    <div class="tool-card">
+        <div class="form-row">
+            <label>Custom Date</label>
+            <input type="datetime-local" id="customDate" onchange="setCustom()">
+        </div>
+        <div class="form-row">
+            <label>Event Name</label>
+            <input type="text" id="eventName" placeholder="My event..." value="New Year" oninput="updateName()">
+        </div>
+    </div>
+    <div class="cd-event-name" id="cdEventName">New Year 2027</div>
+    <div class="countdown-display">
+        <div class="cd-unit"><div class="cd-num" id="cdDays">0</div><div class="cd-label">Days</div></div>
+        <div class="cd-unit"><div class="cd-num" id="cdHours">0</div><div class="cd-label">Hours</div></div>
+        <div class="cd-unit"><div class="cd-num" id="cdMins">0</div><div class="cd-label">Minutes</div></div>
+        <div class="cd-unit"><div class="cd-num" id="cdSecs">0</div><div class="cd-label">Seconds</div></div>
+    </div>
+    <div class="stats">👁️ Views <strong id="pv">-</strong><span class="stat-divider">|</span>👤 Visitors <strong id="uv">-</strong></div>
+    <div class="seo-section">
+        <h2>Countdown Timer</h2>
+        <p>Our free countdown timer lets you count down to any date or event in real time. See exactly how many days, hours, minutes, and seconds remain until your special moment.</p>
+        <h2>Popular Countdowns</h2>
+        <ul>
+            <li><strong>New Year</strong> — Count down to January 1st and ring in the new year!</li>
+            <li><strong>Christmas</strong> — How many days until Christmas? Find out instantly.</li>
+            <li><strong>Halloween</strong> — Count down to October 31st for spooky season.</li>
+            <li><strong>Custom events</strong> — Birthdays, weddings, exams, vacations — anything!</li>
+        </ul>
+        <h2>How to Use</h2>
+        <p>Click a preset button for popular holidays, or select a custom date and enter your event name. The countdown updates every second automatically.</p>
+        <h2>Frequently Asked Questions</h2>
+        <p><strong>Can I set a custom countdown date?</strong> — Yes, count down to any custom date and time, or choose from presets like New Year and Christmas.</p>
+        <p><strong>Does it update in real time?</strong> — Yes, the countdown updates live every second showing days, hours, minutes, and seconds remaining.</p>
+    </div>
+</main>
+<footer>
+    <p><a href="about.html">About</a> · <a href="privacy.html">Privacy</a> · <a href="contact.html">Contact</a> · <a href="/">Home</a></p>
+    <p style="margin-top:0.4rem;">Countdown Timer © 2026 · Free Countdown Timer</p>
+<div style="margin-top:0.6rem;font-size:0.72rem;opacity:0.6;"><a href="https://jimmywithfiona.com/">JimmyWithFiona — Home</a></div>
+</footer>
+<script defer src="js/counter.js"></script>
+<script>
+const PRESETS = {
+    newyear: { date: new Date(new Date().getFullYear() + 1, 0, 1, 0, 0, 0), name: "New Year " + (new Date().getFullYear() + 1) },
+    christmas: { date: new Date(new Date().getFullYear(), 11, 25, 0, 0, 0), name: "Christmas " + new Date().getFullYear() },
+    halloween: { date: new Date(new Date().getFullYear(), 9, 31, 0, 0, 0), name: "Halloween " + new Date().getFullYear() },
+    valentine: { date: new Date(new Date().getFullYear(), 1, 14, 0, 0, 0), name: "Valentine's Day " + new Date().getFullYear() },
+    summer: { date: new Date(new Date().getFullYear(), 5, 21, 0, 0, 0), name: "Summer Solstice " + new Date().getFullYear() },
+};
+let targetDate = PRESETS.newyear.date;
+let eventName = PRESETS.newyear.name;
+
+function setPreset(key) {
+    document.querySelectorAll(".preset-btn").forEach(b => b.classList.remove("active"));
+    event.target.classList.add("active");
+    targetDate = PRESETS[key].date;
+    eventName = PRESETS[key].name;
+    // If date already passed, move to next year
+    if (targetDate < new Date()) {
+        targetDate = new Date(targetDate.getFullYear() + 1, targetDate.getMonth(), targetDate.getDate());
+        eventName = eventName.replace(/\d+/, targetDate.getFullYear());
+    }
+    document.getElementById("eventName").value = eventName;
+    updateName();
+}
+
+function setCustom() {
+    const val = document.getElementById("customDate").value;
+    if (!val) return;
+    targetDate = new Date(val);
+    document.querySelectorAll(".preset-btn").forEach(b => b.classList.remove("active"));
+    if (!eventName || eventName.startsWith("New Year") || eventName.startsWith("Christmas")) {
+        eventName = "Custom Event";
+        document.getElementById("eventName").value = eventName;
+    }
+    updateName();
+}
+
+function updateName() {
+    eventName = document.getElementById("eventName").value || "Event";
+    document.getElementById("cdEventName").textContent = eventName;
+}
+
+function tick() {
+    const now = new Date();
+    let diff = targetDate - now;
+    if (diff < 0) {
+        document.getElementById("cdDays").textContent = "🎉";
+        document.getElementById("cdHours").textContent = "🎉";
+        document.getElementById("cdMins").textContent = "🎉";
+        document.getElementById("cdSecs").textContent = "🎉";
+        document.getElementById("cdEventName").textContent = eventName + " has arrived! 🎉";
+        return;
+    }
+    const days = Math.floor(diff / 86400000);
+    const hours = Math.floor((diff % 86400000) / 3600000);
+    const mins = Math.floor((diff % 3600000) / 60000);
+    const secs = Math.floor((diff % 60000) / 1000);
+    document.getElementById("cdDays").textContent = days;
+    document.getElementById("cdHours").textContent = String(hours).padStart(2, "0");
+    document.getElementById("cdMins").textContent = String(mins).padStart(2, "0");
+    document.getElementById("cdSecs").textContent = String(secs).padStart(2, "0");
+}
+
+// If Christmas/Halloween already passed this year, bump to next year
+if (PRESETS.christmas.date < new Date()) {
+    PRESETS.christmas.date = new Date(new Date().getFullYear() + 1, 11, 25);
+    PRESETS.christmas.name = "Christmas " + (new Date().getFullYear() + 1);
+}
+
+tick();
+setInterval(tick, 1000);
+</script>
+</body>
+</html>
