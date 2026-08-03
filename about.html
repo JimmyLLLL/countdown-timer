@@ -38,5 +38,35 @@
 </main>
 <footer><p>© 2026 Countdown Timer · <a href="/">Home</a></p></footer>
 <script src="js/counter.js" defer></script>
+<!-- I18N-FULL -->
+<script>
+(function(){
+var lang=(navigator.language||navigator.userLanguage||'en').toLowerCase();
+if(!lang.startsWith('zh'))return;
+var ZH={"⏳ Countdown Timer":"⏳ 倒计时器","Countdown":"倒计时","About":"关于","Privacy":"隐私","Contact":"联系","🏠 Home":"🏠 首页","About Countdown Timer":"关于倒计时器","Free countdown timer — count down to New Year, Christmas, or any custom date. Live countdown with days, hours, minutes, seconds. All processing happens locally in your browser — no signup, no upload, no data collection.":"免费的倒计时器 — 倒数新年、圣诞节或任意自定义日期。实时显示天、小时、分钟、秒的倒计时。所有处理均在您的浏览器本地完成 — 无需注册，无需上传，不收集数据。","Privacy First":"隐私优先","All processing happens locally in your browser. We don't store your data, track your inputs, or require any personal information.":"所有处理均在您的浏览器本地完成。我们不存储您的数据，不追踪您的输入，也不需要任何个人信息。","Use Countdown Timer →":"使用倒计时器 →","👁️ Views":"👁️ 浏览量","👤 Visitors":"👤 访客数","© 2026 Countdown Timer ·":"© 2026 倒计时器 ·","Home":"首页"};
+function walk(node){
+if(node.nodeType===3){
+var t=node.textContent,k=t.trim();
+if(k&&ZH[k]){node.textContent=t.replace(k,ZH[k])}
+}else if(node.nodeType===1&&node.tagName!=='SCRIPT'&&node.tagName!=='STYLE'&&node.tagName!=='NOSCRIPT'){
+if(node.childNodes.length>1){
+var full=node.textContent.trim();
+if(ZH[full]){node.textContent=ZH[full];return}
+}
+for(var i=0;i<node.childNodes.length;i++){walk(node.childNodes[i])}
+}
+}
+walk(document.body);
+document.documentElement.lang='zh-CN';
+var mo=new MutationObserver(function(muts){
+muts.forEach(function(m){
+if(m.type==='childList'){m.addedNodes.forEach(function(n){walk(n)})}
+else if(m.type==='characterData'){walk(m.target)}
+});
+});
+mo.observe(document.body,{childList:true,subtree:true,characterData:true});
+})();
+</script>
+<!-- /I18N-FULL -->
 </body>
 </html>
